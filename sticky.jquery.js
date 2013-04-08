@@ -15,9 +15,6 @@
 */
 ;(function($)
 {
-    var tmp = 'define vars here';
-    
-    
     $.fn.sticky = function()
     {
         var tableId = this;
