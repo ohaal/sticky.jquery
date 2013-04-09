@@ -43,13 +43,13 @@
         $(window).scroll(function(){
             if($(window).scrollTop() > pos.top)
             {
-                $(tableId).find("tr:first-child").css("position", "fixed");
-                $(tableId).find("tr:first-child").css("top", "0px");
+                $(tableId).find("thead tr:first-child").css("position", "fixed");
+                $(tableId).find("thead tr:first-child").css("top", "0px");
             }
             else
             {
-                $(tableId).find("tr:first-child").css("position", "relative");
-                $(tableId).find("tr:first-child").css("top", thTop);
+                $(tableId).find("thead tr:first-child").css("position", "relative");
+                $(tableId).find("thead tr:first-child").css("top", thTop);
             }
         });
         
