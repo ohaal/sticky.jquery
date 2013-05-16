@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
 <head>
     <title>jQuery Sticky plugin</title>
     <link rel="stylesheet" href="style.css">
@@ -18,25 +17,35 @@
         <div id="header">
             <h1>Plugin demo for jQuery sticky table headers</h1>
             <h3>How to use this plugin</h3>
-            <p>Make sure you pull jquery and sticky.jquery in the HEAD area of your HTML document. Assign a id to the table you'd want to have sticky table headers enabled and call 'sticky' on it from inside document.ready:</p>
+            <p>
+                Make sure you pull jquery and sticky.jquery in the HEAD area of your HTML document. Assign a id to the table you'd want to have sticky table headers enabled and call 'sticky' on it from inside document.ready:
+            </p>
             <p>
     <pre>
-    &lt;script type="text/javascript" src="jquery.js"&gt;&lt;/script&gt;
-    &lt;script type="text/javascript" src="sticky.jquery.js"&gt;&lt;/script&gt;
-    &lt;script type="text/javascript"&gt;
-        $(document).ready(function(){
-            $("#myTable").sticky();
-        });
-    &lt;/script&gt;
+        &lt;script type="text/javascript" src="jquery.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="sticky.jquery.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript"&gt;
+            $(document).ready(function(){
+                $("#myTable").sticky();
+            });
+        &lt;/script&gt;
     </pre>
             </p>
         </div>
         <div id="content">
-            <table id="myTable">
+            <table id="myTable" style="width: 2000px;">
                 <tr>
                     <th>Id</th>
                     <th>Post Title</th>
                     <th>Date Published</th>
+                    <th>Column D</th>
+                    <th>Column E</th>
+                    <th>Column F</th>
+                    <th>Column G</th>
+                    <th>Column H</th>
+                    <th>Column I</th>
+                    <th>Column J</th>
+                    <th>Column K</th>
                 </tr>
                 <script type="text/javascript">
                     function randomDate(start, end) {
@@ -54,6 +63,32 @@
                             document.write("</td>");
                             document.write("<td>");
                                 document.write(randomDate(new Date(2012, 0, 1), new Date()));
+                            document.write("</td>");
+
+                            document.write("<td>");
+                                document.write(i);
+                            document.write("</td>");
+                            document.write("<td>");
+                                document.write(i);
+                            document.write("</td>");
+                            document.write("<td>");
+                                document.write(i);
+                            document.write("</td>");
+                            document.write("<td>");
+                                document.write(i);
+                            document.write("</td>");
+
+                            document.write("<td>");
+                                document.write(i);
+                            document.write("</td>");
+                            document.write("<td>");
+                                document.write(i);
+                            document.write("</td>");
+                            document.write("<td>");
+                                document.write(i);
+                            document.write("</td>");
+                            document.write("<td>");
+                                document.write(i);
                             document.write("</td>");
                         document.write("</tr>");
                     }
