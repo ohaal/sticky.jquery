@@ -1,12 +1,12 @@
 /*!
- * jQuery sticky table headers plugin: take a valid table element with th tags and make em sticky
+ * jQuery sticky table headers plugin: take a valid table element with <th> tags and make em sticky
  * Examples and documentation at: http://walmik.info/demos/sticky.jquery
- * version 1 (05-APR-2012)
+ * version 1.2 (Sep 12 2013)
  * Requires jQuery v1.3.2 or later
  * Dual licensed under the MIT and GPL licenses:
  * http://www.opensource.org/licenses/mit-license.php
  * http://www.gnu.org/licenses/gpl.html
- * Author: Walmik Deshpande
+ * Author: Walmik Deshpande (walmik.info)
  
  usage:
  $("#tbl").sticky();
@@ -23,6 +23,13 @@
         //$(tableId).css("border-collapse", "collapse");
         //collect widths of all the <th> elements
         var tableWidth = $(tableId).width();
+
+        //get the table height to stop sticky after table has been scrolled
+        var tableHeight = $(tableId).height();
+
+        //get the height of the table header row to offest it from the stop-sticky-after-table-scroll feature
+        var thHeight = $(tableId).find("th:first").parent().height();
+
         var thWidthsArr = [];
         $(tableId).find("th").each(function(){
             thWidthsArr.push($(this).css("width"));
@@ -60,14 +67,14 @@
 
 
         $(window).scroll(function(){
-            if($(window).scrollTop() > pos.top)
+            if($(window).scrollTop() > pos.top && $(window).scrollTop() < pos.top + tableHeight - thHeight)
             {
                 $(tableId).find(firstRow).css("width", tableWidth+"px");
                 $(tableId).find(lastRow).css("width", tableWidth+"px");
                 $(tableId).find(firstRow).css("position", "absolute");
                 $(tableId).find(firstRow).css("top", $("body")[0].scrollTop + "px");
                 $(tableId).find(firstRow).css("left", thLeft+ "px");
-                console.log($(tableId).scrollTop());
+                //console.log($(tableId).scrollTop());
             }
             else
             {
