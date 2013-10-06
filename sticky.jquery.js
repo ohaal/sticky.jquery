@@ -20,9 +20,19 @@
         return this.each(function() {
             var $el = $(this);
 
-            //set border collapse
-            //$el.css("border-collapse", "collapse");
-            //collect widths of all the <th> elements
+            //on tables with border-collapse set to the default 'separate', 
+            //a small spacing is seen on the top of the element when its sticky
+            //get the Y value of that spacing and subtract it later during sticky
+            var borderSpacing = 0;
+            //check border collapse to sort issues of a minor spacing on the top of the table when sicky
+            if($el.css('border-collapse') == 'separate') {
+                var borderSpacingStr = $el.css('border-spacing'); //sample: 2px 2px 
+                //get the Y value from the sample
+                var yBorderSpacing = borderSpacingStr.split(' ')[1];    //returns: 2px
+                //get rid of the 'px'
+                borderSpacing = parseInt(yBorderSpacing.substring(0,yBorderSpacing.indexOf('px')), 10);
+            }
+
             var elWidth = $el.width();
 
             //get the table height to stop sticky after table has been scrolled
@@ -31,6 +41,7 @@
             //get the height of the table header row to offest it from the stop-sticky-after-table-scroll feature
             var thHeight = $el.find("th:first").parent().height();
 
+            //collect widths of all the <th> elements
             var thWidthsArr = [];
             $el.find("th").each(function(){
                 thWidthsArr.push($(this).css("width"));
@@ -73,7 +84,7 @@
                     $el.find(firstRow).css("width", elWidth+"px");
                     $el.find(lastRow).css("width", elWidth+"px");
                     $el.find(firstRow).css("position", "absolute");
-                    $el.find(firstRow).css("top", $("body")[0].scrollTop + "px");
+                    $el.find(firstRow).css("top", ($("body")[0].scrollTop - borderSpacing) + "px");
                     $el.find(firstRow).css("left", thLeft+ "px");
                     //console.log($el.scrollTop());
                 }
