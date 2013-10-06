@@ -1,0 +1,15 @@
+{
+  "name": "sticky.jquery",
+  "title": "jQuery Sticky ",
+  "version": "1.2.0",
+  "repository" :
+  { 
+    "type" : "git",
+    "url" : "https://github.com/walmik/sticky.jquery.git"
+  },
+  "devDependencies": {
+    "grunt-contrib-uglify": "~0.1.1",
+    "grunt-contrib-watch": "~0.2.0",
+    "grunt": "~0.4.1"
+  }
+}

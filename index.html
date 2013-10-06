@@ -3,14 +3,6 @@
 <head>
     <title>jQuery Sticky plugin</title>
     <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="jquery.js"></script>
-    <script type="text/javascript" src="sticky.jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('tr:even>td').addClass('alt');
-            $("#myTable").sticky();
-        });
-    </script>
 </head>
 <body>
     <div id="wrapper">
@@ -18,16 +10,16 @@
             <h1>Plugin demo for jQuery sticky table headers</h1>
             <h3>How to use this plugin</h3>
             <p>
-                Make sure you pull jquery.js and sticky.jquery.js OR sticky.jquery.min.js (less than 1 kb) in the HEAD area of your HTML document. Assign a id to the table you'd want to have sticky table headers enabled and call 'sticky' on it from inside document.ready:
+                Assign a id or class to the table you'd want to have sticky table headers enabled. Make sure you pull jquery.js and sticky.jquery.js OR sticky.jquery.min.js (less than 1 kb). Call 'sticky' on the table:
             </p>
             <p>
                 <pre>
                     &lt;script type="text/javascript" src="jquery.js"&gt;&lt;/script&gt;
                     &lt;script type="text/javascript" src="sticky.jquery.min.js"&gt;&lt;/script&gt;
                     &lt;script type="text/javascript"&gt;
-                        $(document).ready(function(){
+                        (function(){
                             $("#myTable").sticky();
-                        });
+                        })();
                     &lt;/script&gt;
                 </pre>
             </p>
@@ -120,6 +112,15 @@
             Plugin Author: <a href="http://walmik.info">Walmik</a>
         </div>
     </div>
+
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="sticky.jquery.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            $('tr:even>td').addClass('alt');
+            $("#myTable").sticky();
+        })();
+    </script>
     
 </body>
 </html>

@@ -1,7 +1,7 @@
 /*!
  * jQuery sticky table headers plugin: take a valid table element with <th> tags and make em sticky
  * Examples and documentation at: http://walmik.info/demos/sticky.jquery
- * version 1.2 (Sep 12 2013)
+ * version 1.2
  * Requires jQuery v1.3.2 or later
  * Dual licensed under the MIT and GPL licenses:
  * http://www.opensource.org/licenses/mit-license.php
@@ -19,6 +19,7 @@
     {
         return this.each(function() {
             var $el = $(this);
+            var isTable = $el.prop('tagName').toLowerCase() == 'table';
 
             //on tables with border-collapse set to the default 'separate', 
             //a small spacing is seen on the top of the element when its sticky
