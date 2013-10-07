@@ -1,6 +1,9 @@
 module.exports = function (grunt) {
     grunt.initConfig({    
         pkg: grunt.file.readJSON('package.json'),
+        jshint: {
+          all: ['sticky.jquery.js']
+        },
         uglify: {
           options: {
             banner: '/*! <%= pkg.title %> <%= pkg.version %> <%=grunt.template.today("yyyy-mm-dd")%> */'
@@ -17,10 +20,11 @@ module.exports = function (grunt) {
             files: [
               'sticky.jquery.js'
             ],
-            tasks: ['uglify']
+            tasks: ['jshint', 'uglify']
           }
         }
     });
+    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     //register default task
