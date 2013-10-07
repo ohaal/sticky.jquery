@@ -7,11 +7,12 @@
 <body>
     <div id="wrapper">
         <div id="header">
-            <h1>Plugin demo for jQuery sticky table headers</h1>
+            <h1>Demo for jQuery sticky (for tables and non-tables as well)</h1>
             <h3>How to use this plugin</h3>
             <p>
-                Assign a id or class to the table you'd want to have sticky table headers enabled. Make sure you pull jquery.js and sticky.jquery.js OR sticky.jquery.min.js (less than 1 kb). Call 'sticky' on the table:
+                Assign a id or class to the table you'd want to have sticky table headers enabled. Make sure you pull jquery.js and sticky.jquery.js OR sticky.jquery.min.js (less than 1 kb). Initialize 'sticky' on the table. You can initialize sticky on a H3, DIV or any other block level HTML element as well. Finally, you can bind the sticky behavior of a H3 or DIV element to another DIV element so that sticky stops after the second DIV finishes scrolling.
             </p>
+            <p>This plugin works just fine with tables that are wider than the browser width as is demonstrated in this demo.</p>
             <p>
                 <pre>
                     &lt;script type="text/javascript" src="jquery.js"&gt;&lt;/script&gt;
@@ -19,6 +20,10 @@
                     &lt;script type="text/javascript"&gt;
                         (function(){
                             $("#myTable").sticky();
+                            //OR
+                            $("#myDiv").sticky();
+                            //OR
+                            $("#myH3").sticky({bindWith: '#myDiv'});
                         })();
                     &lt;/script&gt;
                 </pre>
