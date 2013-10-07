@@ -36,4 +36,13 @@ td
     background: #333;
     color: #fff;
     padding: 10px;
+    margin: 0px;
+    width: 980px;
+}
+
+#d1 {
+    background: #666;
+    padding: 10px;
+    color: #fff;
+    width: 980px;
 }
